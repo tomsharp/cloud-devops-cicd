@@ -17,8 +17,8 @@ jobs:
       - uses: actions/checkout@v4
       # - name: Setup NodeJS
       #   run: npm run lint
-      - name: Perform a cache action to restore cache before dependency install
-        run: npm run lint
+      # - name: Perform a cache action to restore cache before dependency install
+      #   run: npm run lint
       - name: Install dependencies
         run: cd starter/frontend && npm install
       - name: Run lint
