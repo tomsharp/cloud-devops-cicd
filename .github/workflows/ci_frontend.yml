@@ -1,5 +1,7 @@
 name: frontend_ci
-on: [workflow_dispatch]
+
+on: push
+
 jobs:
   lint:
     runs-on: ubuntu-latest
