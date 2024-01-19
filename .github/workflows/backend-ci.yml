@@ -17,9 +17,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run lint
         run: |
-          cd starter/frontend
           pip install --user pipenv
-          python -m pipenv install
+          cd starter/frontend && python -m pipenv install
           python -m pipenv run lint
   test:
     runs-on: ubuntu-latest
