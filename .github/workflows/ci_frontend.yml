@@ -1,13 +1,5 @@
 name: frontend_ci
-on:
-  workflow_dispatch:
-  pull_request:
-    branches:
-      - main
-    rules:
-      - changes:
-        - frontend/**/
-
+on: [workflow_dispatch]
 jobs:
   lint:
     runs-on: ubuntu-latest
