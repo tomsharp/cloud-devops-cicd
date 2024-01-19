@@ -16,19 +16,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run lint
-      - run: |
-          pip install --user pipenv
-          python -m pipenv install
-          python -m pipenv run lint
+      run: |
+        pip install --user pipenv
+        python -m pipenv install
+        python -m pipenv run lint
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Run test
-      - run: |
-          pip install --user pipenv
-          python -m pipenv install
-          python -m pipenv run test
+      run: |
+        pip install --user pipenv
+        python -m pipenv install
+        python -m pipenv run test
   build:
     runs-on: ubuntu-latest
     steps:
