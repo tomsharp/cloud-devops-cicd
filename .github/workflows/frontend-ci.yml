@@ -15,10 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # - name: Setup NodeJS
-      #   run: npm run lint
-      # - name: Perform a cache action to restore cache before dependency install
-      #   run: npm run lint
       - name: Install dependencies
         run: cd starter/frontend && npm install
       - name: Run lint
@@ -26,8 +22,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Run a one-line script
-        run: echo Hello World
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: cd starter/frontend && npm install
+      - name: Run Test
+        run: npm run test
   build:
     runs-on: ubuntu-latest
     needs: [lint, test]
