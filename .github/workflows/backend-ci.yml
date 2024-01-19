@@ -31,7 +31,10 @@ jobs:
           python -m pipenv run test
   build:
     runs-on: ubuntu-latest
+    needs: [lint, test]
     steps:
       - uses: actions/checkout@v4
       - name: Run test
-        run: docker build --tag mp-backend:$GITHUB_SHA .
+        run: |
+          cd starter/frontend
+          docker build --tag mp-backend:$GITHUB_SHA .

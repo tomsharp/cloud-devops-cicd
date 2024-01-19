@@ -37,6 +37,7 @@ jobs:
           docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag=mp-frontend:$GITHUB_SHA .
       - name: Push to ECR 
         run: |
+          cd starter/frontend
           aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com
           docker push $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/mp-frontend
       - name: Deploy app using kubectl to an EKS cluster
