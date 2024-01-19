@@ -15,11 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run lint
-        run: |
-          pip install --user pipenv
-          cd starter/frontend && python -m pipenv install
-          python -m pipenv run lint
+      - name: Install pipenv
+        run: pip install --user pipenv
+      - name: pipenv install
+        run: cd starter/frontend && python -m pipenv install
+      - name: run lint 
+        run: python -m pipenv run lint
   test:
     runs-on: ubuntu-latest
     steps:
