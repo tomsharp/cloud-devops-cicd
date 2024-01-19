@@ -2,7 +2,7 @@ name: Frontend CD
 
 on:
   push:
-    branches:
+    branch:
       - main
   workflow_dispatch:
 

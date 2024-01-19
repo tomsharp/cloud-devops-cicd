@@ -6,7 +6,7 @@ on:
       - main
   # TODO - remove push trigger
   push:
-    branches:
+    branch:
       - main
   workflow_dispatch:
 
