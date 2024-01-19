@@ -18,6 +18,7 @@ jobs:
       - name: Run lint
         run: |
           pip install --user pipenv
+          cd starter/frontend
           python -m pipenv install
           python -m pipenv run lint
   test:
@@ -27,6 +28,7 @@ jobs:
       - name: Run test
         run: |
           pip install --user pipenv
+          cd starter/frontend
           python -m pipenv install
           python -m pipenv run test
   build:
