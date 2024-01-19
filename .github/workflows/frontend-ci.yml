@@ -14,8 +14,16 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Run a one-line script
-        run: echo Hello from Octo Organization
+      - uses: actions/checkout@v4
+      - name: Setup NodeJS
+        run: npm run lint
+      - name: Perform a cache action to restore cache before dependency install
+        run: npm run lint
+      - name: Install dependencies
+        run: cd starter/frontend && npm install
+      - name: Run lint
+        run: npm run lint
+  
   test:
     runs-on: ubuntu-latest
     steps:
