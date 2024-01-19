@@ -1,20 +1,17 @@
-name: frontend_ci
+name: Octo Organization CI
 
-on: push
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-    - name: lint
-    run: echo "hello world - lint"
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - name: test
-    run: echo "hello world - test"
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - name: build
-    run: echo "hello world - build"
+      - uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: echo Hello from Octo Organization
