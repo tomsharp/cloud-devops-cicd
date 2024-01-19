@@ -31,11 +31,11 @@ jobs:
       - name: Install dependencies
         run: cd starter/frontend && npm install
       - name: Build in Docker
-        run: cd starter/frontend
-        run: docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag=mp-frontend:$GITHUB_SHA .
-      # - name: Push to ECR 
-  #       run: 
-  #         - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com
-  #         - docker push $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/mp-frontend
-  #     - name: Deploy app using kubectl to an EKS cluster
-  #       run: exit 1
+        run: |
+          cd starter/frontend
+          docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag=mp-frontend:$GITHUB_SHA .
+      - name: Push to ECR 
+        run: |
+          aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com
+          docker push $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/mp-frontend
+    
